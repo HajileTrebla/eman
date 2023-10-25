@@ -21,13 +21,18 @@ class Employee extends Model
         'date_hired',
     ];
 
-    public function city() {
+    public function city()
+    {
         return $this->belongsTo(City::class);
     }
-    public function district() {
+
+    public function district()
+    {
         return $this->belongsTo(District::class);
     }
-    public function department() {
+
+    public function department()
+    {
         return $this->belongsTo(Department::class);
     }
 }

@@ -18,7 +18,7 @@ class District extends Model
         return $this->belongsTo(City::class);
     }
 
-    public function employee() {
+    public function employees() {
         return $this->hasMany(Employee::class);
     }
 }
