@@ -49,12 +49,12 @@ class EmployeesRelationManager extends RelationManager
                         ->options(City::all()->pluck('name', 'id')->toArray())
                         ->reactive()
                         ->afterStateUpdated(
-                            fn (callable $set) => $set('state_id', 'null')
+                            fn (callable $set) => $set('district_id', 'null')
                         ),
                     Select::make('district_id')
                         ->label('District')
                         ->options(function (callable $get) {
-                            $city = City::find($get('country_id'));
+                            $city = City::find($get('city_id'));
                             if(!$city){
                                 return District::all()->pluck('name', 'id');
                             }

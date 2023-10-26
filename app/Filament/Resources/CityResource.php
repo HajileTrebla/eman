@@ -18,7 +18,7 @@ class CityResource extends Resource
 {
     protected static ?string $model = City::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-map';
+    protected static ?string $navigationIcon = 'heroicon-o-building-office-2';
 
     protected static ?string $navigationGroup = 'System Management';
 
@@ -44,6 +44,8 @@ class CityResource extends Resource
             ->columns([
                 TextColumn::make('id')
                     ->sortable()
+                    ->searchable(),
+                TextColumn::make('city_code')
                     ->searchable(),
                 TextColumn::make('name')
                     ->searchable(),

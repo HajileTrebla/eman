@@ -30,7 +30,7 @@ class EmployeeCityChart extends ChartWidget
         $pat = Employee::where('city_id', 14)->count();
         $mar = Employee::where('city_id', 15)->count();
         $mbl = Employee::where('city_id', 16)->count();
-        $vza = Employee::where('city_id', 16)->count();
+        $vza = Employee::where('city_id', 17)->count();
         return [
                 'datasets' => [
                     [

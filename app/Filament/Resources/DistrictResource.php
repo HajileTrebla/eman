@@ -51,7 +51,7 @@ class DistrictResource extends Resource
                     ->searchable(),
                 TextColumn::make('name')
                     ->searchable(),
-                TextColumn::make('city.name')
+                TextColumn::make('city.city_code')
                     ->searchable(),
                 TextColumn::make('created_at')
                     ->sortable()

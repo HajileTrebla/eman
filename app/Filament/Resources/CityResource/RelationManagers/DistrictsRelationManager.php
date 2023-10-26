@@ -44,8 +44,6 @@ class DistrictsRelationManager extends RelationManager
                     ->searchable(),
                 TextColumn::make('name')
                     ->searchable(),
-                TextColumn::make('city.name')
-                    ->searchable(),
                 TextColumn::make('created_at')
                     ->sortable()
                     ->searchable(),
