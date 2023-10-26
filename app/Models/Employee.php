@@ -19,6 +19,7 @@ class Employee extends Model
         'zip_code',
         'birth_date',
         'date_hired',
+        'user_id',
     ];
 
     public function city()
@@ -34,5 +35,10 @@ class Employee extends Model
     public function department()
     {
         return $this->belongsTo(Department::class);
+    }
+
+    public function ofUser()
+    {
+        return $this->belongsTo(User::class);
     }
 }

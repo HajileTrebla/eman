@@ -4,10 +4,13 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\EmployeeResource\Pages;
 use App\Filament\Resources\EmployeeResource\RelationManagers;
+use App\Filament\Resources\EmployeeResource\RelationManagers\OfUserRelationManager;
+use App\Filament\Resources\UserResource\RelationManagers\UserRelationManager;
 use App\Filament\Widgets\EmployeeStatsOverview;
 use App\Models\City;
 use App\Models\District;
 use App\Models\Employee;
+use App\Models\User;
 use Filament\Forms;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Fieldset;
@@ -81,6 +84,13 @@ class EmployeeResource extends Resource
                 ->schema([
                     DatePicker::make('birth_date')
                         ->required(),
+                ]),
+                Fieldset::make()
+                ->schema([
+                    Select::make('user_id')
+                        ->label('Assign User')
+                        ->options(['No User']+User::all()->pluck('name', 'id')->toArray())
+                        ->reactive(),
                 ])
             ]);
     }
