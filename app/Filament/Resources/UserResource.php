@@ -6,7 +6,9 @@ use App\Filament\Resources\UserResource\Pages;
 use App\Filament\Resources\UserResource\RelationManagers\EmployeeRelationManager;
 use App\Models\User;
 use Filament\Forms;
+use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\Fieldset;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Pages\CreateRecord;
@@ -51,9 +53,14 @@ class UserResource extends Resource
                         ->password()
                         ->label('Password Confirmation')
                         ->required(fn (string $context): bool => $context === 'create')
-                        ->required()
                         ->minLength(8)
                         ->dehydrated(false),
+                ]),
+                Fieldset::make('Add Role')
+                ->schema([
+                    CheckboxList::make('roles')
+                        ->relationship('roles', 'name')
+                        ->searchable()
                 ]),
             ]);
     }
