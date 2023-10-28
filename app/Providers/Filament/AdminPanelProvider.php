@@ -30,6 +30,7 @@ class AdminPanelProvider extends PanelProvider
             ->homeUrl('\\')
             ->id('admin')
             ->path('admin')
+            ->brandName('eMan')
             ->login()
             ->colors([
                 'danger' => Color::Rose,
